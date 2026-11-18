@@ -2,7 +2,15 @@
 #
 # Versions listed as lower bounds are the versions this project was developed and
 # verified against on CPU-only Windows / Python 3.11 (see README "Verified versions").
-# Everything runs on CPU; no GPU or CUDA is required.
+#
+# !! This project is CPU-only. On Windows/Linux, a plain `pip install torch` pulls the
+# !! default PyPI wheel, which bundles ~2.5 GB of CUDA libraries that are never used
+# !! here. Install the CPU build first, then the rest:
+#
+#       pip install torch --index-url https://download.pytorch.org/whl/cpu
+#       pip install -r requirements.txt
+#
+# (Installing `-r requirements.txt` alone still works - it is just much larger.)
 
 # --- deep learning -----------------------------------------------------------
 torch>=2.0                     # BiLSTM encoders, MLP classifier, training loop

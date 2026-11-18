@@ -122,8 +122,15 @@ Python 3.10+ is required. Everything runs on CPU; no GPU is needed.
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 source .venv/bin/activate
+
+# This project is CPU-only. A plain `pip install torch` pulls the default PyPI wheel,
+# which bundles ~2.5 GB of unused CUDA libraries — install the CPU build first:
+pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 ```
+
+(Installing `-r requirements.txt` on its own also works; it is just a much larger
+download.)
 
 ### Get the dataset
 
