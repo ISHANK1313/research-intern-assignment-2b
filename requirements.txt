@@ -29,3 +29,6 @@ scipy>=1.11                    # exact McNemar significance test (scripts/summar
 # --- figures and report ------------------------------------------------------
 matplotlib>=3.7                # confusion matrices, curves, t-SNE plots
 reportlab>=4.0                 # generates Report/report.pdf
+
+# --- verification ------------------------------------------------------------
+pypdf>=4.0                     # scripts/verify_repo.py checks the PDF's numbers
