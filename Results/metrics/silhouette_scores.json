@@ -1,0 +1,17 @@
+{
+  "temporal_block": {
+    "variant": "speech",
+    "rep_dim": 256,
+    "silhouette_euclidean": 0.6176629066467285
+  },
+  "contextual_block": {
+    "variant": "text",
+    "rep_dim": 256,
+    "silhouette_euclidean": -0.035751618444919586
+  },
+  "fusion_block": {
+    "variant": "fusion",
+    "rep_dim": 512,
+    "silhouette_euclidean": 0.6835127472877502
+  }
+}

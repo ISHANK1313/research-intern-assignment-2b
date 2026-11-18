@@ -1,0 +1,13 @@
+# Normalise line endings so the repository is consistent across platforms and
+# diffs stay clean when cloned on Windows.
+* text=auto eol=lf
+
+# Binary artifacts must never be line-ending converted.
+*.png binary
+*.pdf binary
+*.npy binary
+*.npz binary
+*.pt binary
+*.csv text eol=lf
+*.md text eol=lf
+*.py text eol=lf

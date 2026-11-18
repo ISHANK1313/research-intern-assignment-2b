@@ -1,0 +1,47 @@
+{
+  "seed": 42,
+  "alignment_control": {
+    "task": "speaker identification from summarised log-mel",
+    "test_accuracy": 1.0,
+    "note": "must be ~1.0; a lower value would indicate a mis-aligned split or feature pipeline."
+  },
+  "speech_baseline_logreg": {
+    "features": "per-band mean+std of the log-mel patch",
+    "test_accuracy": 0.992857,
+    "test_macro_f1": 0.992894,
+    "train_accuracy": 1.0
+  },
+  "text_information": {
+    "n_utterances": 2800,
+    "n_unique_transcripts": 200,
+    "h_emotion_bits": 2.807355,
+    "h_emotion_given_transcript_bits": 2.807355,
+    "mutual_information_bits": 0.0,
+    "emotions_per_transcript_min": 7,
+    "emotions_per_transcript_max": 7,
+    "utterances_per_transcript_min": 14,
+    "utterances_per_transcript_max": 14
+  },
+  "bayes_optimal_text": {
+    "bayes_optimal_test_accuracy": 0.0,
+    "test_transcripts_seen_in_train": 420,
+    "n_test": 420,
+    "chance_accuracy": 0.142857
+  },
+  "split_artifact": {
+    "files_per_word_emotion_cell": 2,
+    "train_count_per_cell_distribution": {
+      "2": 683,
+      "1": 594,
+      "0": 123
+    },
+    "test_count_per_cell_distribution": {
+      "0": 866,
+      "1": 354,
+      "2": 33
+    },
+    "words_total": 200,
+    "words_whose_train_majority_emotion_is_absent_from_test": 200,
+    "note": "A text model that memorises the training word->emotion mapping is therefore guaranteed to be wrong on test; this is why the Bayes-optimal text predictor scores 0.0 rather than chance."
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "variant": "text_finetuned",
+  "seed": 42,
+  "ablation_of": "text",
+  "backbone": "distilbert-base-uncased",
+  "frozen_backbone": false,
+  "n_params": 66368263,
+  "best_epoch": 3,
+  "epochs_run": 7,
+  "validation_accuracy": 0.1380952380952381,
+  "validation_macro_f1": 0.0561167790506271,
+  "peak_train_accuracy": 0.14744897959183673,
+  "accuracy": 0.1261904761904762,
+  "macro_f1": 0.04293004293004293,
+  "weighted_f1": 0.042930042930042926,
+  "per_class_f1": {
+    "anger": 0.0,
+    "disgust": 0.22843822843822845,
+    "fear": 0.07207207207207207,
+    "happiness": 0.0,
+    "pleasant_surprise": 0.0,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_precision": {
+    "anger": 0.0,
+    "disgust": 0.13279132791327913,
+    "fear": 0.0784313725490196,
+    "happiness": 0.0,
+    "pleasant_surprise": 0.0,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_recall": {
+    "anger": 0.0,
+    "disgust": 0.8166666666666667,
+    "fear": 0.06666666666666667,
+    "happiness": 0.0,
+    "pleasant_surprise": 0.0,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_support": {
+    "anger": 60,
+    "disgust": 60,
+    "fear": 60,
+    "happiness": 60,
+    "pleasant_surprise": 60,
+    "sadness": 60,
+    "neutral": 60
+  },
+  "confusion_matrix": [
+    [
+      0,
+      49,
+      11,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      49,
+      11,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      56,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      56,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      56,
+      4,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      53,
+      7,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      50,
+      10,
+      0,
+      0,
+      0,
+      0
+    ]
+  ]
+}

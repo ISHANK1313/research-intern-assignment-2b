@@ -1,0 +1,464 @@
+{
+  "seed": 42,
+  "n_test": 420,
+  "accuracy_table": [
+    {
+      "variant": "speech",
+      "model": "Speech only",
+      "accuracy": 0.9952,
+      "macro_f1": 0.9953,
+      "weighted_f1": 0.9953,
+      "rep_dim": 256,
+      "n_test": 420,
+      "f1_anger": 1.0,
+      "f1_disgust": 0.9916,
+      "f1_fear": 1.0,
+      "f1_happiness": 0.9916,
+      "f1_pleasant_surprise": 0.9836,
+      "f1_sadness": 1.0,
+      "f1_neutral": 1.0
+    },
+    {
+      "variant": "text",
+      "model": "Text only",
+      "accuracy": 0.1429,
+      "macro_f1": 0.0357,
+      "weighted_f1": 0.0357,
+      "rep_dim": 256,
+      "n_test": 420,
+      "f1_anger": 0.0,
+      "f1_disgust": 0.0,
+      "f1_fear": 0.0,
+      "f1_happiness": 0.0,
+      "f1_pleasant_surprise": 0.25,
+      "f1_sadness": 0.0,
+      "f1_neutral": 0.0
+    },
+    {
+      "variant": "fusion",
+      "model": "Multimodal (fusion)",
+      "accuracy": 0.9976,
+      "macro_f1": 0.9976,
+      "weighted_f1": 0.9976,
+      "rep_dim": 512,
+      "n_test": 420,
+      "f1_anger": 1.0,
+      "f1_disgust": 1.0,
+      "f1_fear": 1.0,
+      "f1_happiness": 0.9916,
+      "f1_pleasant_surprise": 0.9917,
+      "f1_sadness": 1.0,
+      "f1_neutral": 1.0
+    }
+  ],
+  "easiest_hardest": {
+    "speech": {
+      "ranking": [
+        {
+          "emotion": "anger",
+          "f1": 1.0
+        },
+        {
+          "emotion": "fear",
+          "f1": 1.0
+        },
+        {
+          "emotion": "sadness",
+          "f1": 1.0
+        },
+        {
+          "emotion": "neutral",
+          "f1": 1.0
+        },
+        {
+          "emotion": "disgust",
+          "f1": 0.9916
+        },
+        {
+          "emotion": "happiness",
+          "f1": 0.9916
+        },
+        {
+          "emotion": "pleasant_surprise",
+          "f1": 0.9836
+        }
+      ],
+      "easiest": "anger",
+      "easiest_f1": 1.0,
+      "hardest": "pleasant_surprise",
+      "hardest_f1": 0.9836
+    },
+    "text": {
+      "ranking": [
+        {
+          "emotion": "pleasant_surprise",
+          "f1": 0.25
+        },
+        {
+          "emotion": "anger",
+          "f1": 0.0
+        },
+        {
+          "emotion": "disgust",
+          "f1": 0.0
+        },
+        {
+          "emotion": "fear",
+          "f1": 0.0
+        },
+        {
+          "emotion": "happiness",
+          "f1": 0.0
+        },
+        {
+          "emotion": "sadness",
+          "f1": 0.0
+        },
+        {
+          "emotion": "neutral",
+          "f1": 0.0
+        }
+      ],
+      "easiest": "pleasant_surprise",
+      "easiest_f1": 0.25,
+      "hardest": "neutral",
+      "hardest_f1": 0.0
+    },
+    "fusion": {
+      "ranking": [
+        {
+          "emotion": "anger",
+          "f1": 1.0
+        },
+        {
+          "emotion": "disgust",
+          "f1": 1.0
+        },
+        {
+          "emotion": "fear",
+          "f1": 1.0
+        },
+        {
+          "emotion": "sadness",
+          "f1": 1.0
+        },
+        {
+          "emotion": "neutral",
+          "f1": 1.0
+        },
+        {
+          "emotion": "pleasant_surprise",
+          "f1": 0.9917
+        },
+        {
+          "emotion": "happiness",
+          "f1": 0.9916
+        }
+      ],
+      "easiest": "anger",
+      "easiest_f1": 1.0,
+      "hardest": "happiness",
+      "hardest_f1": 0.9916
+    }
+  },
+  "top_confusions": {
+    "speech": [
+      {
+        "true": "disgust",
+        "pred": "pleasant_surprise",
+        "count": 1,
+        "share_of_all": 0.0024,
+        "share_of_true_class": 0.0167
+      },
+      {
+        "true": "happiness",
+        "pred": "pleasant_surprise",
+        "count": 1,
+        "share_of_all": 0.0024,
+        "share_of_true_class": 0.0167
+      }
+    ],
+    "text": [
+      {
+        "true": "anger",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      },
+      {
+        "true": "disgust",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      },
+      {
+        "true": "fear",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      },
+      {
+        "true": "happiness",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      },
+      {
+        "true": "sadness",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      },
+      {
+        "true": "neutral",
+        "pred": "pleasant_surprise",
+        "count": 60,
+        "share_of_all": 0.1429,
+        "share_of_true_class": 1.0
+      }
+    ],
+    "fusion": [
+      {
+        "true": "happiness",
+        "pred": "pleasant_surprise",
+        "count": 1,
+        "share_of_all": 0.0024,
+        "share_of_true_class": 0.0167
+      }
+    ]
+  },
+  "speaker_breakdown": {
+    "speech": {
+      "OAF": {
+        "accuracy": 0.9952,
+        "n": 210
+      },
+      "YAF": {
+        "accuracy": 0.9952,
+        "n": 210
+      }
+    },
+    "text": {
+      "OAF": {
+        "accuracy": 0.1333,
+        "n": 210
+      },
+      "YAF": {
+        "accuracy": 0.1524,
+        "n": 210
+      }
+    },
+    "fusion": {
+      "OAF": {
+        "accuracy": 0.9952,
+        "n": 210
+      },
+      "YAF": {
+        "accuracy": 1.0,
+        "n": 210
+      }
+    }
+  },
+  "duration_analysis": {
+    "overall_mean_duration_s": 1.973,
+    "overall_median_duration_s": 2.003,
+    "buckets": {
+      "<1.5s": {
+        "n": 35,
+        "mean_duration_s": 1.42,
+        "speech": 1.0,
+        "text": 0.0,
+        "fusion": 1.0
+      },
+      "1.5-2.0s": {
+        "n": 174,
+        "mean_duration_s": 1.757,
+        "speech": 1.0,
+        "text": 0.2299,
+        "fusion": 1.0
+      },
+      "2.0-2.5s": {
+        "n": 193,
+        "mean_duration_s": 2.205,
+        "speech": 0.9896,
+        "text": 0.1036,
+        "fusion": 0.9948
+      },
+      ">=2.5s": {
+        "n": 18,
+        "mean_duration_s": 2.655,
+        "speech": 1.0,
+        "text": 0.0,
+        "fusion": 1.0
+      }
+    }
+  },
+  "fusion_gain_vs_speech": {
+    "accuracy": 0.0024,
+    "macro_f1": 0.0023,
+    "vs_text_accuracy": 0.8547,
+    "per_emotion_f1_delta_vs_speech": {
+      "anger": 0.0,
+      "disgust": 0.0084,
+      "fear": 0.0,
+      "happiness": 0.0,
+      "pleasant_surprise": 0.0081,
+      "sadness": 0.0,
+      "neutral": 0.0
+    },
+    "largest_gain_emotion": "disgust",
+    "largest_gain_value": 0.0084,
+    "largest_loss_emotion": "anger",
+    "largest_loss_value": 0.0
+  },
+  "significance_tests": {
+    "speech_vs_fusion": {
+      "n_paired": 420,
+      "speech_wrong_fusion_right": 1,
+      "speech_right_fusion_wrong": 0,
+      "accuracy_delta": 0.002381,
+      "mcnemar_exact_p": 1.0,
+      "significant_at_0.05": false
+    },
+    "speech_vs_text": {
+      "n_paired": 420,
+      "speech_wrong_text_right": 0,
+      "speech_right_text_wrong": 358,
+      "accuracy_delta": -0.852381,
+      "mcnemar_exact_p": 0.0,
+      "significant_at_0.05": true
+    },
+    "text_vs_fusion": {
+      "n_paired": 420,
+      "text_wrong_fusion_right": 359,
+      "text_right_fusion_wrong": 0,
+      "accuracy_delta": 0.854762,
+      "mcnemar_exact_p": 0.0,
+      "significant_at_0.05": true
+    }
+  },
+  "failure_cases": [
+    {
+      "provenance": "fusion error (test split)",
+      "file_name": "OAF_lease_happy.wav",
+      "speaker": "OAF",
+      "transcript": "Say the word lease.",
+      "true_emotion": "happiness",
+      "pred_emotion": "pleasant_surprise",
+      "fusion_confidence": 0.8701,
+      "fusion_prob_true": 0.1293,
+      "runner_up": {
+        "emotion": "happiness",
+        "prob": 0.1293
+      },
+      "speech_pred": "pleasant_surprise",
+      "speech_correct": false,
+      "speech_confidence": 0.5759,
+      "text_pred": "pleasant_surprise",
+      "text_correct": false,
+      "text_confidence": 0.1665
+    },
+    {
+      "provenance": "fusion near-miss (correct, lowest margin)",
+      "file_name": "YAF_hash_disgust.wav",
+      "speaker": "YAF",
+      "transcript": "Say the word hash.",
+      "true_emotion": "disgust",
+      "pred_emotion": "disgust",
+      "fusion_confidence": 0.7058,
+      "fusion_prob_true": 0.7058,
+      "runner_up": {
+        "emotion": "pleasant_surprise",
+        "prob": 0.2859
+      },
+      "speech_pred": "pleasant_surprise",
+      "speech_correct": false,
+      "speech_confidence": 0.8545,
+      "text_pred": "pleasant_surprise",
+      "text_correct": false,
+      "text_confidence": 0.1662
+    },
+    {
+      "provenance": "fusion near-miss (correct, lowest margin)",
+      "file_name": "OAF_rush_disgust.wav",
+      "speaker": "OAF",
+      "transcript": "Say the word rush.",
+      "true_emotion": "disgust",
+      "pred_emotion": "disgust",
+      "fusion_confidence": 0.8149,
+      "fusion_prob_true": 0.8149,
+      "runner_up": {
+        "emotion": "pleasant_surprise",
+        "prob": 0.1845
+      },
+      "speech_pred": "disgust",
+      "speech_correct": true,
+      "speech_confidence": 0.8743,
+      "text_pred": "pleasant_surprise",
+      "text_correct": false,
+      "text_confidence": 0.1664
+    },
+    {
+      "provenance": "fusion near-miss (correct, lowest margin)",
+      "file_name": "OAF_wire_ps.wav",
+      "speaker": "OAF",
+      "transcript": "Say the word wire.",
+      "true_emotion": "pleasant_surprise",
+      "pred_emotion": "pleasant_surprise",
+      "fusion_confidence": 0.8819,
+      "fusion_prob_true": 0.8819,
+      "runner_up": {
+        "emotion": "happiness",
+        "prob": 0.116
+      },
+      "speech_pred": "pleasant_surprise",
+      "speech_correct": true,
+      "speech_confidence": 0.8531,
+      "text_pred": "pleasant_surprise",
+      "text_correct": true,
+      "text_confidence": 0.1663
+    },
+    {
+      "provenance": "fusion near-miss (correct, lowest margin)",
+      "file_name": "OAF_burn_ps.wav",
+      "speaker": "OAF",
+      "transcript": "Say the word burn.",
+      "true_emotion": "pleasant_surprise",
+      "pred_emotion": "pleasant_surprise",
+      "fusion_confidence": 0.914,
+      "fusion_prob_true": 0.914,
+      "runner_up": {
+        "emotion": "happiness",
+        "prob": 0.0847
+      },
+      "speech_pred": "pleasant_surprise",
+      "speech_correct": true,
+      "speech_confidence": 0.6355,
+      "text_pred": "pleasant_surprise",
+      "text_correct": true,
+      "text_confidence": 0.1661
+    }
+  ],
+  "silhouette_scores": {
+    "temporal_block": {
+      "variant": "speech",
+      "rep_dim": 256,
+      "silhouette_euclidean": 0.6176629066467285
+    },
+    "contextual_block": {
+      "variant": "text",
+      "rep_dim": 256,
+      "silhouette_euclidean": -0.035751618444919586
+    },
+    "fusion_block": {
+      "variant": "fusion",
+      "rep_dim": 512,
+      "silhouette_euclidean": 0.6835127472877502
+    }
+  }
+}

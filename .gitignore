@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------- dataset audio
+# The raw TESS corpus is never committed. `scripts/download_tess.py` fetches it into
+# a local directory that must stay untracked.
+data/
+*.wav
+*.zip
+
+# ------------------------------------------------------- derived feature caches
+# ~270 MB of log-mel arrays and ~137 MB of DistilBERT embeddings, regenerated on
+# demand. The *small* representations the report needs live in Results/ and ARE tracked.
+cache/
+
+# ------------------------------------------------------------------- credentials
+# Never commit API keys or tokens (Kaggle, Hugging Face, GitHub).
+.kaggle/
+kaggle.json
+.env
+.env.*
+*.pem
+secrets.json
+
+# ------------------------------------------------------------------------ python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ------------------------------------------------------------------- os / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# ---------------------------------------------------------------- tooling state
+# Local agent/editor harness state (not part of the project).
+.mimosa/

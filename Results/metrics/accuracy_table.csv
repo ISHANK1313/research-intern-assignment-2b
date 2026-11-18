@@ -1,0 +1,4 @@
+variant,model,accuracy,macro_f1,weighted_f1,rep_dim,n_test,f1_anger,f1_disgust,f1_fear,f1_happiness,f1_pleasant_surprise,f1_sadness,f1_neutral
+speech,Speech only,0.9952,0.9953,0.9953,256,420,1.0,0.9916,1.0,0.9916,0.9836,1.0,1.0
+text,Text only,0.1429,0.0357,0.0357,256,420,0.0,0.0,0.0,0.0,0.25,0.0,0.0
+fusion,Multimodal (fusion),0.9976,0.9976,0.9976,512,420,1.0,1.0,1.0,0.9916,0.9917,1.0,1.0

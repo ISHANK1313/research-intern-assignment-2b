@@ -1,0 +1,23 @@
+# Multimodal Emotion Recognition (TESS) - runtime requirements
+#
+# Versions listed as lower bounds are the versions this project was developed and
+# verified against on CPU-only Windows / Python 3.11 (see README "Verified versions").
+# Everything runs on CPU; no GPU or CUDA is required.
+
+# --- deep learning -----------------------------------------------------------
+torch>=2.0                     # BiLSTM encoders, MLP classifier, training loop
+transformers>=4.40             # DistilBERT tokenizer + frozen encoder (text branch)
+
+# --- audio -------------------------------------------------------------------
+librosa>=0.10                  # resampling, silence trimming, log-mel spectrogram
+soundfile>=0.12                # audio I/O backend used by librosa
+
+# --- scientific stack --------------------------------------------------------
+numpy>=1.24,<3
+pandas>=2.0                    # split/metadata tables and result CSVs
+scikit-learn>=1.3              # stratified split, metrics, t-SNE, silhouette
+scipy>=1.11                    # exact McNemar significance test (scripts/summarize_results.py)
+
+# --- figures and report ------------------------------------------------------
+matplotlib>=3.7                # confusion matrices, curves, t-SNE plots
+reportlab>=4.0                 # generates Report/report.pdf

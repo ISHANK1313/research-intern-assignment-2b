@@ -1,0 +1,115 @@
+{
+  "variant": "text",
+  "split": "test",
+  "rep_name": "contextual_block",
+  "rep_dim": 256,
+  "n_test": 420,
+  "accuracy": 0.14285714285714285,
+  "macro_f1": 0.03571428571428571,
+  "weighted_f1": 0.03571428571428571,
+  "per_class_f1": {
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "happiness": 0.0,
+    "pleasant_surprise": 0.25,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_precision": {
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "happiness": 0.0,
+    "pleasant_surprise": 0.14285714285714285,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_recall": {
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "happiness": 0.0,
+    "pleasant_surprise": 1.0,
+    "sadness": 0.0,
+    "neutral": 0.0
+  },
+  "per_class_support": {
+    "anger": 60,
+    "disgust": 60,
+    "fear": 60,
+    "happiness": 60,
+    "pleasant_surprise": 60,
+    "sadness": 60,
+    "neutral": 60
+  },
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      60,
+      0,
+      0
+    ]
+  ],
+  "best_epoch": 1,
+  "n_params": 1349127,
+  "backbone": "distilbert-base-uncased",
+  "frozen_backbone": true
+}
