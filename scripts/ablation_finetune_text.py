@@ -109,7 +109,8 @@ def main(argv: list[str] | None = None) -> int:
     trainer = TU.Trainer(model, forward_fn, tag=VARIANT, lr=args.lr,
                          max_epochs=args.epochs, patience=args.patience)
     history = trainer.fit(loaders["train"], loaders["val"])
-    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False)
+    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False,
+                   lineterminator="\n")
 
     test_loader = TU.make_loader(
         TU.ArrayDataset(feats["test"], parts["test"]["label"].to_numpy()),

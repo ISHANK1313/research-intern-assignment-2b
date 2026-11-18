@@ -100,7 +100,8 @@ def main(argv: list[str] | None = None) -> int:
     history = trainer.fit(loaders["train"], loaders["val"])
 
     # --- persist ------------------------------------------------------------
-    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False)
+    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False,
+                   lineterminator="\n")
     train_utils.save_checkpoint(
         model, config.CHECKPOINT_DIR / f"{VARIANT}.pt",
         extra={"norm": {"mean": mean, "std": std}, "variant": VARIANT,

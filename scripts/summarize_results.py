@@ -305,7 +305,8 @@ def main(argv: list[str] | None = None) -> int:
     preds = {v: pd.read_csv(config.PRED_DIR / f"pred_{v}.csv") for v in VARIANTS}
     df, md = build_accuracy_table()
 
-    df.to_csv(config.METRICS_DIR / "accuracy_table.csv", index=False)
+    df.to_csv(config.METRICS_DIR / "accuracy_table.csv", index=False,
+              lineterminator="\n")
     (config.METRICS_DIR / "accuracy_table.md").write_text(md + "\n", encoding="utf-8")
 
     analysis = {

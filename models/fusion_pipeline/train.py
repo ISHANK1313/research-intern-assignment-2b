@@ -106,7 +106,8 @@ def main(argv: list[str] | None = None) -> int:
         max_epochs=args.epochs, patience=args.patience)
     history = trainer.fit(loaders["train"], loaders["val"])
 
-    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False)
+    history.to_csv(config.METRICS_DIR / f"history_{VARIANT}.csv", index=False,
+                   lineterminator="\n")
     arch = {"n_mels": config.N_MELS, "text_in_dim": int(text_dim),
             "hidden": args.hidden, "num_classes": config.NUM_CLASSES,
             "dropout": config.DROPOUT, "num_layers": 2}

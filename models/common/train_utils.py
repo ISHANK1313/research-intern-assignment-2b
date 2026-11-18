@@ -347,7 +347,7 @@ def save_test_artifacts(variant: str, test_df: pd.DataFrame, out: dict,
                 "test file listing differs from the one already saved - the test "
                 "split changed between runs, so the variants are not comparable.")
     else:
-        listing.to_csv(files_path, index=False)
+        listing.to_csv(files_path, index=False, lineterminator="\n")
 
     np.save(config.METRICS_DIR / f"probs_{variant}.npy", probs)
     np.save(config.REPS_DIR / f"reps_{variant}_test.npy", rep.astype(np.float32))
@@ -365,7 +365,8 @@ def save_test_artifacts(variant: str, test_df: pd.DataFrame, out: dict,
     })
     for i, emotion in enumerate(config.EMOTIONS):
         pred_df[f"p_{emotion}"] = probs[:, i]
-    pred_df.to_csv(config.PRED_DIR / f"pred_{variant}.csv", index=False)
+    pred_df.to_csv(config.PRED_DIR / f"pred_{variant}.csv", index=False,
+                   lineterminator="\n")
 
     payload = {"variant": variant, "split": "test", "rep_name": rep_name,
                "rep_dim": int(rep.shape[1]), "n_test": int(len(y_true)),

@@ -148,7 +148,9 @@ def write_split(data_dir: Path, seed: int = config.SEED) -> pd.DataFrame:
     config.SPLIT_DIR.mkdir(parents=True, exist_ok=True)
     df = make_split(build_index(data_dir), seed=seed)
     out = split_path(seed)
-    df.to_csv(out, index=False)
+    # lineterminator keeps the output LF-only on every platform, so regenerating the
+    # split on Windows does not produce a spurious whole-file diff.
+    df.to_csv(out, index=False, lineterminator="\n")
     return df
 
 

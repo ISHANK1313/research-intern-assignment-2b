@@ -98,7 +98,8 @@ def main(argv: list[str] | None = None) -> int:
     history = trainer.fit(loaders["train"], loaders["val"])
 
     tag = VARIANT
-    history.to_csv(config.METRICS_DIR / f"history_{tag}.csv", index=False)
+    history.to_csv(config.METRICS_DIR / f"history_{tag}.csv", index=False,
+                   lineterminator="\n")
     arch = {"in_dim": int(embed_dim), "hidden": args.hidden,
             "num_classes": config.NUM_CLASSES, "dropout": config.DROPOUT,
             "num_layers": 2}

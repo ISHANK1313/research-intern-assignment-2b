@@ -21,6 +21,7 @@ Exits non-zero on the first failure group, printing what is wrong.
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -64,25 +65,50 @@ def check(condition: bool, message: str) -> None:
         failures.append(message)
 
 
+def tracked_files(root: Path) -> list[Path] | None:
+    """Files tracked by git, i.e. what the repository actually publishes.
+
+    Scanning the working directory instead would flag third-party library content: a
+    virtualenv created inside the repo (as the README instructs) contains scipy's
+    test-fixture .wav files and certifi's cacert.pem, none of which we ship. Returns
+    None when the tree is not a git checkout.
+    """
+    try:
+        out = subprocess.run(["git", "-C", str(root), "ls-files"],
+                             capture_output=True, text=True, check=True)
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return [root / line for line in out.stdout.splitlines() if line.strip()]
+
+
 def main() -> int:
     root = config.REPO_ROOT
 
     # ---------------------------------------------------------------- 1. hygiene
     print("[1] repository hygiene")
-    audio = [p for p in root.rglob("*.wav")]
-    check(not audio, f"audio files present in repo: {audio[:3]}")
-    check(not (root / "data").exists() or not any((root / "data").rglob("*.wav")),
-          "data/ contains audio")
-    for pattern in ("kaggle.json", ".env", "secrets.json", "*.pem"):
-        hits = [p for p in root.rglob(pattern) if ".git" not in p.parts]
-        check(not hits, f"possible credential file committed: {hits[:3]}")
+    files = tracked_files(root)
+    if files is None:
+        print("    (not a git checkout - falling back to a filtered directory walk)")
+        skip = {".venv", "venv", "cache", "data", ".git", "__pycache__"}
+        files = [p for p in root.rglob("*")
+                 if p.is_file() and not (skip & set(p.parts))]
+    audio = [p for p in files if p.suffix.lower() in (".wav", ".mp3", ".flac", ".ogg")]
+    check(not audio, f"audio files are tracked in the repo: {audio[:3]}")
+    # certifi's cacert.pem is a third-party CA list, not a private key, and is never
+    # tracked anyway - the point of this check is what the repository publishes.
+    creds = [p for p in files
+             if (p.name in ("kaggle.json", ".env", "secrets.json")
+                 or p.suffix.lower() == ".pem"
+                 or "credential" in p.name.lower())]
+    check(not creds, f"possible credential file tracked: {creds[:3]}")
     # The feature cache legitimately exists in a working copy, so assert that it is
     # ignored rather than absent.
     gitignore = (root / ".gitignore").read_text(encoding="utf-8") \
         if (root / ".gitignore").is_file() else ""
     for ignored in ("cache/", "data/", "*.wav", "kaggle.json", ".env"):
         check(ignored in gitignore, f".gitignore does not ignore {ignored!r}")
-    print(f"    audio files: {len(audio)} | .gitignore covers data/cache/credentials")
+    print(f"    tracked files: {len(files)} | audio: {len(audio)} | "
+          f"credentials: {len(creds)} | .gitignore covers data/cache/credentials")
 
     # ------------------------------------------------------- 2. shared test set
     print("[2] shared test set")
